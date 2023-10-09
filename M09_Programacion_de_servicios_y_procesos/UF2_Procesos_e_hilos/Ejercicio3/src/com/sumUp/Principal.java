@@ -9,32 +9,45 @@ public class Principal {
     public static void main(String[] args) {
 
         try {
-            BufferedReader userIn = new BufferedReader(new InputStreamReader(System.in));
-
             while (true) {
-                Process sumador = new ProcessBuilder("java", "M09_Programacion_de_servicios_y_procesos/UF2_Procesos_e_hilos/Ejercicio3/src/com/sumUp/Sumador.java").start();
+                Process sumador = new ProcessBuilder("java", "-jar", "Sumador.jar").start();
 
                 BufferedReader sumadorIn = new BufferedReader(new InputStreamReader(sumador.getInputStream()));
                 PrintStream sumadorOut = new PrintStream(sumador.getOutputStream(), true);
 
-                System.out.print("\033[1mEscribe el primer número: ");
-                int first = Integer.parseInt(userIn.readLine());
+                int first = getUserNumber();
 
-                System.out.print("\033[1mEscribe el segundo número: ");
-                int second = Integer.parseInt(userIn.readLine());
+                int second = getUserNumber();
 
                 if (first == 0 && second == 0) {break;}
 
                 sumadorOut.println(first);
                 sumadorOut.println(second);
 
-                System.out.println("\033[0mLa suma es " + sumadorIn.readLine());
+                System.out.println("La suma es " + sumadorIn.readLine());
             }
 
-            System.out.println("\033[1mFIN");
+            System.out.println("FIN");
 
         } catch (IOException e) {
             System.out.println("Error : " + e.getMessage());
         }
     }
+
+    private static int getUserNumber() {
+        BufferedReader userIn = new BufferedReader(new InputStreamReader(System.in));
+
+        while (true) {
+            System.out.print("Escribe un número entero: ");
+            try {
+                return Integer.parseInt(userIn.readLine());
+            } catch (NumberFormatException e) {
+                System.out.println("No es un número válido. Introduce un número entero.");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+
 }
