@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEndOfHeadBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStartOfImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEndOfImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.167" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.333" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.667" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.833" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStartOfProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEndOfProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#40000000"
+        android:elevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineEndOfHeadBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buttonReturn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/baseline_arrow_back_ios_24"
+        android:backgroundTint="#8d99ae"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineButton1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Now Playing"
+        android:textColor="#8d99ae"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSongName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSongName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="undefined"
+        android:textColor="#edf2f4"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSongAuthor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textViewSongAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="undefined"
+        android:textStyle="bold"
+        android:textColor="#8d99ae"
+        android:textSize="12.5sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSongAlbum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSongName" />
+
+    <TextView
+        android:id="@+id/textViewSongAlbum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="undefined"
+        android:textColor="#edf2f4"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineEndOfHeadBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSongAuthor" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineStartOfProgressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineEndOfHeadBar"
+        android:background="@drawable/gradient_songportrait_bg" />
+
+    <ImageView
+        android:id="@+id/imageViewPortrait"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineEndOfImage"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineButton5"
+        app:layout_constraintStart_toStartOf="@+id/guidelineButton1"
+        app:layout_constraintTop_toTopOf="@+id/guidelineStartOfImage"
+        android:elevation="1dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="0dp"
+        android:backgroundTint="#40000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineStartOfProgressBar" />
+
+    <TextView
+        android:id="@+id/textViewRemaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:textColor="#edf2f4"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineStartOfProgressBar" />
+
+    <TextView
+        android:id="@+id/textViewTotalTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:textColor="#edf2f4"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/guidelineButton4"
+        app:layout_constraintTop_toTopOf="@+id/guidelineStartOfProgressBar" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:progress="30"
+        android:progressTint="#B15261"
+        android:progressBackgroundTint="#FFF"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineEndOfProgressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonPrevSong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/baseline_skip_previous_24"
+        android:backgroundTint="#8d99ae"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineButton1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineEndOfProgressBar" />
+
+    <Button
+        android:id="@+id/buttonBackward"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8d99ae"
+        android:background="@drawable/baseline_backward_10_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineButton2"
+        app:layout_constraintStart_toStartOf="@+id/guidelineButton1"
+        app:layout_constraintTop_toTopOf="@+id/guidelineEndOfProgressBar" />
+
+    <Button
+        android:id="@+id/buttonStop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8d99ae"
+        android:background="@drawable/baseline_stop_circle_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineButton3"
+        app:layout_constraintStart_toStartOf="@+id/guidelineButton2"
+        app:layout_constraintTop_toTopOf="@+id/guidelineEndOfProgressBar" />
+
+    <Button
+        android:id="@+id/buttonPlayPause"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8d99ae"
+        android:background="@drawable/baseline_pause_circle_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineButton4"
+        app:layout_constraintStart_toStartOf="@+id/guidelineButton3"
+        app:layout_constraintTop_toTopOf="@+id/guidelineEndOfProgressBar" />
+
+    <Button
+        android:id="@+id/buttonForward"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/baseline_forward_10_24"
+        android:backgroundTint="#8d99ae"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineButton5"
+        app:layout_constraintStart_toStartOf="@+id/guidelineButton4"
+        app:layout_constraintTop_toTopOf="@+id/guidelineEndOfProgressBar" />
+
+    <Button
+        android:id="@+id/buttonNextSong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8d99ae"
+        android:background="@drawable/baseline_skip_next_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineButton5"
+        app:layout_constraintTop_toTopOf="@+id/guidelineEndOfProgressBar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
