@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="M09_UF2_T1_Ejercicio3_Principal">
-    <output-path>$PROJECT_DIR$/out/artifacts/M09_UF2_T1_Ejercicio3_Principal</output-path>
-    <root id="archive" name="M09_UF2_T1_Ejercicio3_Principal.jar">
-      <element id="module-output" name="M09_UF2_T1_Ejercicio3_Principal" />
-      <element id="artifact" artifact-name="Sumador" />
-    </root>
-  </artifact>
-</component>
