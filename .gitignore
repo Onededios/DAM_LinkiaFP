@@ -24,5 +24,4 @@ hs_err_pid*
 replay_pid*
 
 # Allow only specific paths from M08_Programacion_multimedia_y_dispositivos_moviles with app/src/main/
-M08_Programacion_multimedia_y_dispositivos_moviles/
 !M08_Programacion_multimedia_y_dispositivos_moviles/**/app/src/main/
