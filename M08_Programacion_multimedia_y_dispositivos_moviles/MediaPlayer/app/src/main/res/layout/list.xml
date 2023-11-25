@@ -34,7 +34,7 @@
                 android:layout_width="40sp"
                 android:layout_height="match_parent"
                 android:background="@drawable/baseline_autorenew_24"
-                android:backgroundTint="#8d99ae"/>
+                android:backgroundTint="#edf2f4"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

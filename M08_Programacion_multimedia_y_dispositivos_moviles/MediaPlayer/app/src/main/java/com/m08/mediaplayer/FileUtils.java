@@ -1,5 +1,6 @@
 package com.m08.mediaplayer;
 
+import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Environment;
@@ -8,11 +9,16 @@ import java.io.File;
 import java.util.Objects;
 
 public class FileUtils {
+    Context context_JOO; // To get the context and set datarRetreiver
+    FileUtils(Context context_JOO) {
+        this.context_JOO = context_JOO;
+    }
+
     // Array of allowed file extensions
     private static final String[] allowedExt = new String[]{"mp3"};
 
     // Method to get all files in the Downloads directory and create songs from them
-    protected static void getAllDownloadsSongs() {
+    protected void getAllDownloadsSongs() {
         // Clear the existing list of saved songs
         Song.dropSavedSongs();
 
@@ -30,8 +36,10 @@ public class FileUtils {
                 // Iterate through each file in the Downloads directory
                 for (File file_JOO : files_JOO) {
                     // Check if the file has an allowed extension to create a song from the media file and add it to the list of songs
-                    if (isSongFileExtensionAllowed(file_JOO))
-                        Song.getSongs().add(createSongFromMediaFile(file_JOO));
+                    if (isSongFileExtensionAllowed(file_JOO)) {
+                        Song newSong = createSongFromMediaFile(file_JOO);
+                        if (newSong != null) Song.getSongs().add(newSong);
+                    }
                 }
             }
         }
@@ -61,11 +69,13 @@ public class FileUtils {
     }
 
     // Method to create a Song object from a media file
-    private static Song createSongFromMediaFile(File file_JOO) {
+    private Song createSongFromMediaFile(File file_JOO) {
         try {
             // Create a MediaMetadataRetriever and set its data source to the file
             MediaMetadataRetriever retriever_JOO = new MediaMetadataRetriever();
-            retriever_JOO.setDataSource(file_JOO.getAbsolutePath());
+            Uri uri_JOO = Uri.parse(file_JOO.toURI().toString());
+
+            retriever_JOO.setDataSource(context_JOO, uri_JOO);
 
             // Extract metadata from the file
             String title_JOO = retriever_JOO.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
@@ -81,7 +91,7 @@ public class FileUtils {
                     album_JOO != null ? album_JOO : "undefined",
                     duration_JOO,
                     image_JOO,
-                    Uri.parse(file_JOO.getAbsolutePath())
+                    uri_JOO
             );
         } catch (Exception e) {
             // Handle the case where reading file metadata fails

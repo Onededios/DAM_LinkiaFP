@@ -1,13 +1,17 @@
 package com.m08.mediaplayer;
 
 import android.annotation.SuppressLint;
+import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class Song {
     private final int id_JOO; // Unique identifier for each song
+
     // Song attributes
     private final String name_JOO;
     private final String author_JOO;
@@ -68,12 +72,12 @@ public class Song {
     }
     protected static void setNextSong() {
         int songId_JOO = selectedSong_JOO.getId();
-        setSelectedSong(savedSongs_JOO.size()-1 < (songId_JOO+1) ? savedSongs_JOO.get(0) : savedSongs_JOO.get((songId_JOO+1)));
+        setSelectedSong((savedSongs_JOO.size()-1) < (songId_JOO+1) ? savedSongs_JOO.get(0) : savedSongs_JOO.get((songId_JOO+1)));
     }
 
     protected static void setPrevSong() {
         int songId_JOO = selectedSong_JOO.getId();
-        setSelectedSong(0 > songId_JOO-1 ? savedSongs_JOO.get(savedSongs_JOO.size()-1) : savedSongs_JOO.get(songId_JOO-1));
+        setSelectedSong(0 > (songId_JOO-1) ? savedSongs_JOO.get(savedSongs_JOO.size()-1) : savedSongs_JOO.get(songId_JOO-1));
     }
 
     // Method to convert milliseconds to a formatted duration string

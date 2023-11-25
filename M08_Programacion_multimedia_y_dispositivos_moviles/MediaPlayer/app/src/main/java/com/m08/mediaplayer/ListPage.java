@@ -34,9 +34,6 @@ public class ListPage extends AppCompatActivity{
         setContentView(R.layout.list); // Set the content view to the "list" layout
         initView(); // Initialize the layout elements
 
-        // Check and request file read permissions
-        checkAndRequestPermissions();
-
         // Load and display songs
         rechargeSongs(listViewSongs_JOO);
 
@@ -76,15 +73,17 @@ public class ListPage extends AppCompatActivity{
 
     // Method to recharge and display songs in the list view
     private void rechargeSongs(ListView Songs_JOO) {
+        // Check and request file read permissions
+        checkAndRequestPermissions();
+
         // Load songs from the downloads folder
-        FileUtils.getAllDownloadsSongs();
+        new FileUtils(this).getAllDownloadsSongs();
         int songsQTY_JOO = Song.getSongs().size();
 
         // Show a toast message based on the number of loaded songs
         Toast.makeText(this, songsQTY_JOO > 0 ? "Loaded "+songsQTY_JOO+" .mp3 songs from downloads folder" : "Cannot find any mp3 songs in your downloads folder", Toast.LENGTH_SHORT).show();
 
         // Create and set the adapter for the list view
-        SongAdapter songAdapter_JOO = new SongAdapter(this);
-        Songs_JOO.setAdapter(songAdapter_JOO);
+        Songs_JOO.setAdapter(new SongAdapter(this));
     }
 }

@@ -58,7 +58,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
             imageView.setImageBitmap(bitmap);
         } else {
             // Set default image in the selected song has no album art
-            imageView.setImageResource(R.drawable.ic_launcher_background);
+            imageView.setImageResource(R.drawable.baseline_question_mark_24);
         }
     }
 }

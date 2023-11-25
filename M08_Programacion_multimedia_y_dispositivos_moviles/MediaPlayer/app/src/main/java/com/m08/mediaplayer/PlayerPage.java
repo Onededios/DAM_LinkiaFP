@@ -130,7 +130,6 @@ public class PlayerPage extends AppCompatActivity {
         if (media_JOO != null) {
             if (media_JOO.isPlaying()) media_JOO.stop();
             media_JOO.release(); // Release resources after stopping
-            media_JOO = null;
         }
     }
 
@@ -139,12 +138,12 @@ public class PlayerPage extends AppCompatActivity {
         if (media_JOO != null) {
             if (media_JOO.isPlaying()) {
                 // Pause the song and flip the button start/stop
-                buttonPlayPause_JOO.setBackgroundResource(R.drawable.baseline_play_circle_24);
+                buttonPlayPause_JOO.setBackgroundResource(R.drawable.baseline_play_arrow_24);
                 media_JOO.pause();
             }
             else {
                 // Start playing the song and flip the button start/stop
-                buttonPlayPause_JOO.setBackgroundResource(R.drawable.baseline_pause_circle_24);
+                buttonPlayPause_JOO.setBackgroundResource(R.drawable.baseline_pause_24);
 
                 // Calls the song observer to observer the media progress
                 observer_JOO.startObserver();

@@ -13,6 +13,7 @@
         tools:srcCompat="@tools:sample/avatars"
         android:layout_weight="0.1"
         android:scaleType="fitStart"
+        android:backgroundTint="#edf2f4"
         android:layout_margin="5dp"/>
 
     <LinearLayout
