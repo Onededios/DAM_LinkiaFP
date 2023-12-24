@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/textView_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Galaxy Sorter"
+        android:textSize="40sp"
+        android:textColor="@color/grey_400"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Title"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Laderboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="by Joel Olivera"
+        android:textSize="20sp"
+        android:textColor="@color/grey_500"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Title"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Laderboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Title" />
+
+    <Button
+        android:id="@+id/button_StartGame"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:text="Start new game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Laderboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Title" />
+
+    <TextView
+        android:id="@+id/textView_Laderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Laderboard"
+        android:textColor="@color/grey_400"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_LaderboardTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Laderboard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listView_Laderboard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Laderboard"
+        app:layout_constraintTop_toTopOf="@+id/guideline_LaderboardTitle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Laderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_LaderboardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+</androidx.constraintlayout.widget.ConstraintLayout>
