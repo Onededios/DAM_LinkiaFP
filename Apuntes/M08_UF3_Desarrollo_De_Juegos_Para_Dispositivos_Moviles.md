@@ -51,6 +51,8 @@ La detección de colisiones se basa en la posición y el estado actual de los ob
 
 Si la frecuencia de renderización es baja, es posible que se pierdan colisiones entre fotogramas.
 
+**Las detecciones de colisión se deben de hacer en el Timer que actualiza el método onDraw() que se encarga de actualizar la pantalla.**
+
 #### Detección geométrica
 
 La simplificación de la geometría del sprite es la clave para poder detectar colisiones.
@@ -73,6 +75,37 @@ Estos rectángulos son figuras geométricas simples y representan de manera apro
 En lugar de comparar cada pixel, simplemente verificamos si los rectángulos que envuelven las naves se solapan.
 Si hay solapamiento, asumimos que las naves han colisionado.
 ```
+
+- Ejemplo de colisión de rectángulos
+
+```java
+Rect rect1 = new Rect(50, 50, 200, 200); // Rectángulo 1
+Rect rect2 = new Rect(150, 150, 300, 300); // Rectángulo 2
+
+if (rect1.intersect(rect2)) {
+    // Colisión detectada
+    System.out.println("Colisión de rectángulos detectada");
+} else {
+    System.out.println("No hay colisión de rectángulos");
+}
+```
+
+- Ejemplo de colisión de círculos
+
+```java
+float x1 = 100, y1 = 100, r1 = 50; // Círculo 1 (centro x1, y1 y radio r1)
+float x2 = 200, y2 = 200, r2 = 60; // Círculo 2 (centro x2, y2 y radio r2)
+
+double distancia = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
+if (distancia < r1 + r2) {
+    // Colisión detectada
+    System.out.println("Colisión de círculos detectada");
+} else {
+    System.out.println("No hay colisión de círculos");
+}
+```
+
 
 #### Detección mediante proyecciones
 
@@ -99,6 +132,63 @@ Proyectamos ambos rectángulos en el eje Y (vertical).
 Si las proyecciones no se solapan en este eje, los autos no han colisionado.
 
 Al combinar ambas proyecciones, si no hay solapamiento en ninguna dimensión, podemos concluir que no hay colisión entre los dos autos.
+```
+
+```java
+class Proyectil {
+    float x, y, width, height;
+
+    Proyectil(float x, float y, float width, float height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    float getProyection(float axisX, float axisY) {
+        float[] points = {x, y, x + width, y, x, y + height, x + width, y + height};
+        float min = Float.MAX_VALUE;
+        float max = Float.MIN_VALUE;
+
+        for (int i = 0; i < points.length; i += 2) {
+            float projection = points[i] * axisX + points[i + 1] * axisY;
+            min = Math.min(min, projection);
+            max = Math.max(max, projection);
+        }
+
+        return min + max;
+    }
+
+    boolean isOverlapping(Proyectil other) {
+        // Verificar colisión en el eje X
+        float axisX = 1, axisY = 0;
+        float proj1 = getProyection(axisX, axisY);
+        float proj2 = other.getProyection(axisX, axisY);
+        if (proj1 < proj2 || proj2 < proj1) {
+            return false;
+        }
+
+        // Verificar colisión en el eje Y
+        axisX = 0;
+        axisY = 1;
+        proj1 = getProyection(axisX, axisY);
+        proj2 = other.getProyection(axisX, axisY);
+        return !(proj1 < proj2 || proj2 < proj1);
+    }
+}
+
+public class ColisionesProyeccion {
+    public static void main(String[] args) {
+        Proyectil proyectil1 = new Proyectil(50, 50, 100, 100);
+        Proyectil proyectil2 = new Proyectil(120, 120, 80, 80);
+
+        if (proyectil1.isOverlapping(proyectil2)) {
+            System.out.println("Colisión detectada");
+        } else {
+            System.out.println("No hay colisión");
+        }
+    }
+}
 ```
 
 ## Como diseñar un videojuego en Android
@@ -143,3 +233,54 @@ public class CustomViewGame extends View {
 ```
 
 La función que se utiliza para llamar al onDraw() y actualizar así la pantalla es **invalidate()** y se debe de llamar dentro del Timer que ejecuta el main loop del juego.
+
+### Entradas del usuario
+
+El método onTouchEvent() se utiliza para manejar eventos táctiles y se llama automáticamente cuando ocurre un evento táctil.
+
+```java
+@Override
+public boolean onTouchEvent(MotionEvent event) {
+    int action = event.getAction();
+
+    float x = event.getX();
+    float y = event.getY();
+
+    switch (action) {
+        case MotionEvent.ACTION_DOWN:
+            // Se tocó la pantalla
+            break;
+        case MotionEvent.ACTION_MOVE:
+            // Se movió el dedo sobre la pantalla
+            break;
+        case MotionEvent.ACTION_UP:
+            // Se levantó el dedo de la pantalla
+            break;
+    }
+
+    // Llamada a onDraw() para redibujar la vista
+    invalidate();
+    // Devuelve true para indicar que has manejado el evento
+    return true;
+}
+```
+
+### Sonido
+
+Mediante el método setOnCompletionListener() podemos controlar el loop de la música.
+
+```java
+Mediaplayer mediaPlayer_JOO = new MediaPlayer();
+mediaPlayer_JOO.setDataSource(context_JOO, getSoundUri(songId_JOO));
+mediaPlayer_JOO.prepare();
+mediaPlayer_JOO.start();
+
+mediaPlayer_JOO.setOnCompletionListener(mediaPlayer -> {
+            try {
+                // Recursive call to restart the song
+                setSong(songId_JOO);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+```
