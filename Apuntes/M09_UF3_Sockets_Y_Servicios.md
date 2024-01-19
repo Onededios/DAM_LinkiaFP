@@ -22,6 +22,8 @@ Una pregunta (6 puntos )sobre la teoria del libro y los pdf. (no hay código)
 
 ### Sistemas distribuidos
 
+Es un entorno informático que abarca múltiples dispositivos, coordinando sus esfuerzos para completar un trabajo de forma mucho más eficiente que si fuera con un solo dispositivo.
+
 Los elementos que forman el sistema distribuido **no están sincronizados** y **están conectados a una red de comunicaciones**
 
 Está formado por más de un elemento computacional distinto e independiente (un procesador dentro de una máquina, un ordenador dentro de una red, etc), que no comparte memoria con el resto.
@@ -37,32 +39,42 @@ Está formado por más de un elemento computacional distinto e independiente (un
 
 ### Pila de protocolos IP
 
+![alt](https://upload.wikimedia.org/wikipedia/commons/7/73/Suite_de_Protocolos_TCPIP.png)
+
 #### Niveles
 
 ##### 1. Nivel de aplicación
 
 Lo componen las aplicaciones que forman el sistema distribuido, que hacen uso de los niveles inferiores para poder transferir mensajes entre ellas.
 
+**Ejemplo:** HTTP para la transferencia de páginas web.
+
 ##### 2. Nivel de transporte
 
 Lo componen los elementos software cuya función es crear el canal de comunicación, descomponer el mensaje en paquetes y gestionar su transmisión entre el emisor y el receptor. Los dos protocolos de transporte fundamentales: TCP y UDP.
+
+**Ejemplo:** TCP para garantizar la entrega de datos, como en la descarga de archivos.
 
 ##### 3. Nivel de Internet
 
 Lo componen los elementos software que se encargan de dirigir los paquetes por la red, asegurándose de que lleguen a su destino.
 También llamado nivel IP.
 
+**Ejemplo:** IP (Internet Protocol) para enrutar datos entre redes, como enviar un paquete desde tu PC a un servidor.
+
 ##### 4. Nivel de red
 
 Lo componen los elementos hardware de comunicaciones y sus controladores básicos. Se encarga de trasmitir los paquetes de información.
 
+**Ejemplo:** Ethernet para la comunicación directa entre dispositivos en la misma red local.
+
 #### Funcionamiento
 
-La capa de aplicación aplicará un formato adecuado a los datos junto con la dirección de envío lo pasara a la capa de transporte.
-1. La capa de transporte dividirá en la información en paquetes .
-2. En la capa de internet se añaden las direcciones origen y destino del mensaje y calcula la ruta que deben seguir los paquetes para llegar al receptor.
-3. La capa de enlace añade nuevos datos para conseguir que esta información llegue al nodo próximo situado en el camino activando todos los elementos físicos necesarios.
-4. Las señales saltaran de nodo en nodo hasta llegar al dispositivo receptor, comprobando su dirección IP.
+1. La capa de aplicación aplicará un formato adecuado a los datos junto con la dirección de envío lo pasara a la capa de transporte.
+2. La capa de transporte dividirá en la información en paquetes.
+3. En la capa de internet se añaden las direcciones origen y destino del mensaje y calcula la ruta que deben seguir los paquetes para llegar al receptor.
+4. La capa de red añade nuevos datos para conseguir que esta información llegue al nodo próximo situado en el camino activando todos los elementos físicos necesarios.
+5. Las señales saltaran de nodo en nodo hasta llegar al dispositivo receptor, comprobando su dirección IP.
 
 ### Protocolos orientados a la conexión (TCP)
 
@@ -92,8 +104,10 @@ El protocolo UDP es más rápido que el protocolo TCP, ya que no es necesario es
 
 ### Sockets
 
-Los sockets son el mecanismo de comunicación básico fundamental que se usa para realizar transferencias de información entre aplicaciones. 
+Los sockets son el mecanismo de comunicación básico fundamental que se usa para realizar transferencias de información entre aplicaciones.
+
 Proporcionan una abstracción de la pila de protocolos.
+
 Un socket (en inglés, literalmente, un “enchufe”) representa el extremo de un canal de comunicación establecido entre un emisor y un receptor.
 
 #### Sockets stream
@@ -170,6 +184,8 @@ Para que puedan llevarse a cabo invocaciones de métodos remotos, debe existir u
 7. (_cliente_) Obtención del valor de retorno del método.
 
 #### Arquitectura
+
+![RMI](https://cdn.educba.com/academy/wp-content/uploads/2019/07/RMI-ArchitectureDone.jpg)
 
 ##### Interfaz remota
 

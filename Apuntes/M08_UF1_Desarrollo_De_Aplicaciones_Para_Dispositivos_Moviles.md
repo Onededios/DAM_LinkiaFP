@@ -49,13 +49,13 @@ Utiliza estas herramientas para identificar y corregir problemas en tu código d
 - **Carpeta manifests:** Contiene el archivo AndroidManifest.xml que describe la estructura de tu aplicación, sus componentes y sus permisos.
 - **Carpeta java:** Aquí se encuentran los archivos fuente de tu aplicación escritos en el lenguaje de programación Java.
 - **Carpeta res:** Contiene recursos como imágenes, diseños y valores utilizados en tu aplicación.
-- **Drawable:** En esta carpeta se almacenan los recursos gráficos, como imágenes y archivos XML de forma dibujable.
-- **Layout:** Aquí se definen los archivos XML que representan la interfaz de usuario de tu aplicación.
-- **Mipmap:** Similar a la carpeta Drawable, pero optimizada para almacenar íconos de la aplicación en diferentes densidades de pantalla.
-- **Values:** Esta carpeta contiene archivos XML que definen valores constantes, como colores, cadenas y estilos, utilizados en toda la aplicación.
-  - **Color:** Define los colores utilizados en la interfaz de usuario.
-  - **String:** Contiene las cadenas de texto utilizadas en la aplicación.
-  - **Styles:** Define los estilos de la interfaz de usuario, como el formato de texto y la apariencia de los componentes.
+  - **Drawable:** En esta carpeta se almacenan los recursos gráficos, como imágenes y archivos XML de forma dibujable.
+  - **Layout:** Aquí se definen los archivos XML que representan la interfaz de usuario de tu aplicación.
+  - **Mipmap:** Similar a la carpeta Drawable, pero optimizada para almacenar íconos de la aplicación en diferentes densidades de pantalla.
+  - **Values:** Esta carpeta contiene archivos XML que definen valores constantes, como colores, cadenas y estilos, utilizados en toda la aplicación.
+    - **Color:** Define los colores utilizados en la interfaz de usuario.
+    - **String:** Contiene las cadenas de texto utilizadas en la aplicación.
+    - **Styles:** Define los estilos de la interfaz de usuario, como el formato de texto y la apariencia de los componentes.
 
 ### Componentes de una aplicación
 

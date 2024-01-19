@@ -96,6 +96,8 @@ Es la ejecución simultanea de varios hilos:
 
 #### Estados
 
+![Estados](https://javiersanzrozalen.files.wordpress.com/2016/10/estados.png?w=463&h=221)
+
 Los hilos pueden cambiar de estado a lo largo de su ejecución.
 
 - **Nuevo:** el hilo está preparado para su ejecución pero todavía no se ha realizado la llamada correspondiente en la ejecución del código del programa.

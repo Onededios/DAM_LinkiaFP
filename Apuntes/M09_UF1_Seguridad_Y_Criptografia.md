@@ -25,7 +25,7 @@ Cipher,MessageDigest, Signature, KeyPar, ….. doFinal, init, sign, etc.
 
 #### Que es la criptografía?
 
-Acción de proteger la información mediante su modificación utilizando una clave. 
+Acción de proteger la información mediante su modificación utilizando una clave.
 
 #### Aplicaciones de la criptografía
 
